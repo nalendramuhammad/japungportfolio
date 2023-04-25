@@ -48,8 +48,32 @@
           </p>
         </div>
         <div class="row-about-2">
-          <img src="assets/img/JAPUNG.jpeg" alt="" />
-          <img src="assets/img/JAPUNG.jpeg" alt="" />
+          <div class="card">
+            <img src="assets/img/JAPUNG.jpeg" alt="" />
+            <!-- <div class="intro">
+              <h1>visi</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi deleniti inventore recusandae officia veniam
+                perspiciatis explicabo. Quidem corporis, esse dolores numquam
+                sequi impedit temporibus at reiciendis illo recusandae incidunt
+                voluptatem?
+              </p>
+            </div> -->
+          </div>
+          <div class="card">
+            <img src="assets/img/JAPUNG.jpeg" alt="" />
+            <!-- <div class="intro">
+              <h1>misi</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi deleniti inventore recusandae officia veniam
+                perspiciatis explicabo. Quidem corporis, esse dolores numquam
+                sequi impedit temporibus at reiciendis illo recusandae incidunt
+                voluptatem?
+              </p>
+            </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -71,9 +95,91 @@
     </div>
 
     <div class="contact" id="contact">
-      <!-- your contact section content here -->
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d126921.63438232537!2d106.8955351!3d-6.2239752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fca83ae0cd53%3A0x107380777fc094f4!2sMushola%20Al-Furqon!5e0!3m2!1sen!2sid!4v1682423267610!5m2!1sen!2sid"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="feedback">
+        <h3>Feedback</h3>
+        <p>
+          Thank you for your interest in our services. Please leave your
+          feedback below:
+        </p>
+        <form
+          id="my-form"
+          action="https://formspree.io/f/xdovyyvb"
+          method="POST">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+            style="width: 382px; height: 42px" />
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+            style="width: 382px; height: 42px" />
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Enter your feedback here"
+            required
+            style="width: 382px; height: 204px"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
 
     <script src="javascript/script.js"></script>
+    <script>
+      var form = document.getElementById("my-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
   </body>
 </html>
