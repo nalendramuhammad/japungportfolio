@@ -26,7 +26,10 @@ body {
 }
 
 .jkb {
-  margin: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 65px;
 }
 
 .est {
@@ -124,12 +127,15 @@ body {
   position: absolute;
   display: flex;
   height: 320px;
-  width: calc(100% - 100px);
+  width: 100%;
   justify-content: flex-end;
+  margin-top: 70px;
   flex-direction: column;
   align-items: flex-end;
   color: #ffff;
   text-transform: uppercase;
+  max-width: 1100px;
+  right: 120px;
 }
 
 .co h3 {
@@ -185,6 +191,7 @@ body {
 
 .about .title h1 {
   margin-top: 50px;
+  font-size: 15px;
 }
 
 .row-about {
@@ -192,6 +199,16 @@ body {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
+}
+
+.row-about-1 p {
+  font-size: 20px;
+  align-items: center;
+}
+
+.row-about-1 h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .row-about-2 {
@@ -368,27 +385,21 @@ body {
   }
 
   .judul {
-    width: 100px;
+    width: 80px;
     height: auto;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
 
-  .jkb {
-    /* height: 60px;
-    width: 30px; */
-  }
-
   .jkb img {
-    /* background-size: contain; */
     height: 60px;
     width: 40px;
   }
 
   .est {
     margin: 0;
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 30px;
   }
 
@@ -408,6 +419,7 @@ body {
   .nav-container {
     display: flex;
     margin-top: 65px;
+    justify-content: space-between;
   }
 
   .nav {
@@ -448,10 +460,8 @@ body {
   }
 
   .co {
-    position: absolute;
-    height: auto;
-    display: flex;
-    margin-top: 300px;
+    width: 100%;
+    right: 20px;
   }
 
   .co h3 {
@@ -541,12 +551,21 @@ body {
   .contact {
     height: auto;
     flex-direction: column;
-    display: flex;
   }
 
   .map iframe {
-    width: 300px;
-    height: 250px;
+    width: 200px;
+    height: 150px;
     align-items: center;
+  }
+
+  .feedback {
+    align-items: center;
+    text-align: center;
+  }
+
+  .feedback form {
+    width: 50px;
+    height: 30px;
   }
 }
