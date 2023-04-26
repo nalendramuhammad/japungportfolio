@@ -8,3 +8,11 @@ navLinks.forEach((link) => {
     targetSection.scrollIntoView({ behavior: "smooth" });
   });
 });
+
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const nav = document.querySelector(".nav");
+
+hamburgerMenu.addEventListener("click", () => {
+  hamburgerMenu.classList.toggle("change");
+  nav.classList.toggle("show");
+});
