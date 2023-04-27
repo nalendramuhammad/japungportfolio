@@ -178,27 +178,34 @@ body {
 }
 
 .about {
+  height: 100vh;
   background-color: #272727;
   color: #ffff;
-  height: 100vh;
 }
 
 .about .title {
   display: flex;
   flex-direction: column;
+  color: #ffff;
   align-items: center;
 }
 
 .about .title h1 {
   margin-top: 50px;
-  font-size: 15px;
+  margin-bottom: 50px;
+  font-weight: bolder;
 }
 
 .row-about {
-  margin: 70px;
-  margin-top: 50px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.row-about-1 {
+  width: 600px;
+  margin-right: 100px;
 }
 
 .row-about-1 p {
@@ -208,11 +215,9 @@ body {
 
 .row-about-1 h1 {
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .row-about-2 {
-  margin-left: 100px;
   display: flex;
   flex-direction: row;
 }
@@ -267,7 +272,7 @@ body {
 
 .portfolio {
   background-color: #272626;
-  height: 100vh;
+  height: 100%;
 }
 
 .head {
@@ -281,40 +286,58 @@ body {
   margin-top: 50px;
 }
 
-.portfolio .galeri {
-  margin: 146px;
+.gallery-box {
   display: flex;
-  height: 20rem;
-  gap: 1rem;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 960px;
+  margin-top: 20px;
+  /* margin-bottom: 50px; */
 }
 
-.galeri > div {
-  flex: 1;
-  border-radius: 1rem;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  transition: all 2s cubic-bezier(0.25, 0.4, 0.45, 1.4);
+/* Gallery image styles */
+.gallery-image {
+  flex-basis: calc(30% - 10px);
+  margin: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.galeri > div:hover {
-  flex: 3;
+.gallery-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.1);
 }
 
 .contact {
+  height: 100vh;
   display: flex;
+  flex-direction: row;
   background-color: #272727;
   color: #ffff;
+  justify-content: center;
+}
+
+.wrap-contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .map {
-  margin: 80px 70px 100px 140px;
   flex-grow: 1;
 }
 
 .feedback {
-  margin: 75px 140px 100px 20px;
+  margin-left: 50px;
   width: 400px;
 }
 
@@ -337,6 +360,17 @@ body {
 .feedback label {
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+.feedback input[type="text"],
+.feedback input[type="email"] {
+  width: 382px;
+  height: 43px;
+}
+
+.feedback textarea {
+  width: 382px;
+  height: 204px;
 }
 
 .feedback input[type="text"],
@@ -503,6 +537,7 @@ body {
   }
 
   .about {
+    flex-direction: row;
     height: auto;
   }
   .row-about {
@@ -512,17 +547,28 @@ body {
     text-align: center;
   }
 
-  .row-about p {
-    margin-bottom: 10px;
+  .row-about-1 {
+    margin: 0 50px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row-about-1 p {
+    width: 200px;
+    font-size: smaller;
+  }
+
+  .row-about-1 h1 {
+    font-size: 15px;
   }
 
   .row-about-2 {
-    margin-bottom: 100px;
-    margin-top: 50px;
-    margin: 50px 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 50px;
   }
 
   .row-about-2 img {
@@ -531,41 +577,85 @@ body {
   }
 
   .portfolio {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .gallery-box {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
     margin-top: 20px;
-    height: auto;
+    justify-content: center;
   }
 
-  .portfolio .galeri {
-    margin: 50px;
-    flex-wrap: wrap;
-    height: auto;
-  }
-
-  .galeri > div {
-    flex-basis: calc(50% - 0.5rem);
-    height: 15rem;
-    margin-bottom: 1rem;
-    animation: none;
+  .gallery-image {
+    flex-basis: calc(50% - 10px);
   }
 
   .contact {
     height: auto;
+  }
+
+  .wrap-contact {
+    display: flex;
     flex-direction: column;
   }
 
   .map iframe {
-    width: 200px;
-    height: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    justify-content: center;
     align-items: center;
+    height: 200px;
+    width: 100%;
   }
 
   .feedback {
+    margin: 0 50px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+  }
+
+  .feedback h3 {
+    font-size: 20px;
+  }
+
+  .feedback p {
+    width: 200px;
     text-align: center;
+    font-size: 14px;
   }
 
   .feedback form {
-    width: 50px;
-    height: 30px;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .feedback input[type="text"],
+  .feedback input[type="email"] {
+    width: 282px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .feedback textarea {
+    width: 282px;
+    height: 140px;
+  }
+
+  .feedback button[type="submit"] {
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 282px;
+    border: none;
+    background-color: #ffff;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 30px;
+    font-weight: 700;
   }
 }

@@ -9,10 +9,9 @@ navLinks.forEach((link) => {
   });
 });
 
-const hamburgerMenu = document.querySelector(".hamburger-menu");
+const hamburger = document.querySelector(".hamburger-menu");
 const nav = document.querySelector(".nav");
 
-hamburgerMenu.addEventListener("click", () => {
-  hamburgerMenu.classList.toggle("change");
+hamburger.addEventListener("click", () => {
   nav.classList.toggle("show");
 });
